@@ -1,0 +1,26 @@
+.nice {
+    font-family: sans-serif;
+}
+
+a.special:link {
+    color: green;
+}
+
+a.special:link {
+    color:red;
+}
+
+p {
+    font-weight: bold;
+    color: red;
+}
+
+p::first-line{
+    
+    color: green;
+    font-variant: small-caps;
+}
+
+p:hover {
+    background-color: aquamarine;
+}

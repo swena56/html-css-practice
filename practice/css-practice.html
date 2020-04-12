@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../assets/js/prism.min.js"></script>
+    <script src="../assets/js/prism-normalize-whitespace.min"></script>
+    <link rel="stylesheet" href="../assets/css/prism.min.css">
+    <link rel="stylesheet" href="../assets/css/prism-line-highlight.min.css">
+</head>
+<style>
+    table {
+        width: 100%;
+    }
+
+    td {
+        border: 1px solid #333;
+        padding: 10px;
+    }
+
+    thead,
+    tfoot {
+        background-color: #333;
+        color: #fff;
+    }
+
+    .center {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+    }
+
+    .fireborder {
+        border: 10px solid transparent;
+        border-image: url(../../assets/images/fire.png) 100 repeat;
+    }
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 150px;
+    }
+
+</style>
+
+<body>
+    <table>
+        <col width="50%">
+        <col width="50%">
+        <thead>
+            <tr>
+                <th colspan="2">Border Styles</th>
+            </tr>
+            <tr>
+                <th>Example</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <pre><code class="language-css">.selector { border: solid; }</code></pre>
+                </td>
+                <td><img style="border: solid;" src="https://via.placeholder.com/300" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <pre><code class="language-css">.selector { border: dotted; }</code></pre>
+                </td>
+                <td><img style="border: dotted;" src="https://via.placeholder.com/300" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <pre><code class="language-css">.selector { border: dashed; }</code></pre>
+                </td>
+                <td><img style="border: dashed;" src="https://via.placeholder.com/300" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <pre><code class="language-css">.selector { border: double; }</code></pre>
+                </td>
+                <td><img style="border: double;" src="https://via.placeholder.com/300" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <pre><code class="language-css">.selector { border: ridge; }</code></pre>
+                </td>
+                <td><img style="border: ridge;" src="https://via.placeholder.com/300" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <pre><code class="language-css">.selector { border: inset; }</code></pre>
+                </td>
+                <td><img style="border: inset;" src="https://via.placeholder.com/300" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <pre><code class="language-css">.selector { border: 2px solid; border-radius: 5px; }</code></pre>
+                </td>
+                <td><img style="border: 2px solid; border-radius: 5px;" src="https://via.placeholder.com/300" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <pre><code class="language-css">.selector { border: 2px solid; border-radius: 5px; }</code></pre>
+                </td>
+                <td><img style="border: 2px solid; border-radius: 5px;" src="https://via.placeholder.com/300" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <pre><code class="language-css">.selector {
+    border: 10px solid transparent;
+    border-image: url(../../assets/images/fire.png) 100 repeat;
+}
+</code></pre>
+                </td>
+                <td><img class="fireborder" src="https://via.placeholder.com/300" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <a href="https://www.w3schools.com/css/css_border_shorthand.asp">Border shorthand</a>
+    <script>
+        Prism.plugins.NormalizeWhitespace.setDefaults({
+            'remove-trailing': true,
+            'remove-indent': true,
+            'left-trim': true,
+            'right-trim': true,
+        });
+
+    </script>
+</body>
+
+</html>

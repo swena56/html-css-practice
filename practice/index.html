@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/all.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <style>
+        #navigation {
+            padding-left: 30px;
+
+        }
+
+        .dropdown {
+            display: none;
+            background-color: #f1f1f1;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            max-width: 250px;
+            z-index: 400;
+            padding: 1px 1px 1px 0px;
+            text-decoration: none;
+        }
+
+        #dropdown-container {
+            padding-left: 60px;
+        }
+
+        .dropdown-item:hover {
+            background-color: darkgray;
+        }
+
+        .show {
+            display: block;
+        }
+
+        #dropdown-button:hover {
+            background-color: darkgray;
+        }
+
+        #content {
+            // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625)
+        }
+
+        #content iframe {
+            border: 0;
+            width: 100%;
+        }
+
+        body {
+            overflow-y: hidden;
+            /* Hide vertical scrollbar */
+            overflow-x: hidden;
+            /* Hide horizontal scrollbar */
+        }
+
+    </style>
+</head>
+
+<body>
+    <span id="navigation">
+        <button class="btn" id="dropdown-button">Topics</button>
+    </span>
+    <div id="dropdown-container">
+        <ul class="dropdown" style="list-style-type: none">
+            <li>
+                <div class="dropdown-item">
+                    <img height=15px width=15px src="../assets/images/html5.png" />
+                    HTML
+                </div>
+            </li>
+            <li>
+                <div class="dropdown-item">
+                    <img height=15px width=15px src="../assets/images/css-logo.jpg" />
+                    CSS
+                </div>
+            </li>
+            <li>
+                <div class="dropdown-item">
+                    <img height=15px width=15px src="../assets/images/js-logo.jpg" />
+                    Javascript
+                </div>
+        </ul>
+    </div>
+    <div id="content" class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" allowfullscreen frameborder="0" src="html-practice.html"></iframe>
+    </div>
+    <script>
+        window.onclick = function(event) {
+            if (event.target.matches('#dropdown-button')) {
+                console.log("Menu click");
+                document.querySelector('.dropdown').classList.toggle('show');
+            } else if (event.target.matches('.dropdown-item')) {
+                console.log("Menu clicks");
+                const target = event.target.textContent.trim().toLowerCase();
+                switch (target) {
+                    case 'javascript':
+                        document.getElementById("content").querySelector('iframe').src = "./js-practice.html";
+                        break;
+                    case 'css':
+                        document.getElementById("content").querySelector('iframe').src = "./css-practice.html";
+                        break;
+                    case 'html':
+                        document.getElementById("content").querySelector('iframe').src = "./html-practice.html";
+                        break;
+                    default:
+                        console.log('unknown click');
+
+                }
+                var $iframes = $("iframe");
+                $iframes.each(function() {
+                    $(this).data("ratio", this.height / this.width)
+                        .removeAttr("width")
+                        .removeAttr("height");
+                });
+                $(window).resize(function() {
+                    $iframes.each(function() {
+                        var width = $(this).parent().width();
+                        $(this).width(width)
+                            .height(width * $(this).data("ratio"));
+                    });
+                }).resize();
+                document.querySelector('.dropdown').classList.remove('show')
+
+            } else {
+                console.log("Menu");
+                document.querySelector('.dropdown').classList.remove('show')
+            }
+        }
+    </script>
+</body>
+
+</html>
